@@ -9,7 +9,9 @@ namespace Input
         
         public void SendMessage(Vector2 cords)
         {
-            Debug.Log(cords);
+            bool zero = cords == Vector2.zero;
+            if(zero)
+                return;
             Move?.Invoke(cords);
         }
     }

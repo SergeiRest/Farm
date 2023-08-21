@@ -14,6 +14,7 @@ namespace Installers
                 Quaternion.identity, null);
 
             Container.Bind<Player>().FromInstance(playerInstance).AsSingle().NonLazy();
+            
             Camera.main.transform.SetParent(playerInstance.transform);
         }
     }

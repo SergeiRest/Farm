@@ -11,7 +11,8 @@ namespace Gameplay.Player
      
         private PlayerMovement playerMovement;
 
-        private void Start()
+        [Inject]
+        public void Init()
         {
             playerMovement = new PlayerMovement(transform);
             inputService.Move += playerMovement.MoveTo;
