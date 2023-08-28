@@ -4,9 +4,9 @@ using Zenject;
 
 public class ResourcesInstaller : MonoInstaller
 {
-    [SerializeField] private ResourcesViewContainer resourcesViewContainer;
+    [SerializeField] private ResourcesViewModel resourcesViewContainer;
     public override void InstallBindings()
     {
-        Container.Bind<ResourcesViewContainer>().FromInstance(resourcesViewContainer).AsSingle().NonLazy();
+        Container.Bind<ResourcesViewModel>().FromInstance(resourcesViewContainer).AsSingle().NonLazy();
     }
 }

@@ -5,7 +5,7 @@ using Zenject;
 
     public abstract class AbstractResource : MonoBehaviour
     {
-        [Inject] private ResourcesViewContainer viewContainer;
+        [Inject] private ResourcesViewModel viewContainer;
 
         protected virtual void Take()
         {

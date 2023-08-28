@@ -13,7 +13,8 @@ namespace Gameplay.Player
 
         public void MoveTo(Vector2 moveVector)
         {
-            Vector3 pos = transform.position + new Vector3(moveVector.x, 0, moveVector.y);
+            Vector2 normalized = moveVector.normalized;
+            Vector3 pos = transform.position + new Vector3(normalized.x, 0, normalized.y);
             transform.position = pos;
         }
     }

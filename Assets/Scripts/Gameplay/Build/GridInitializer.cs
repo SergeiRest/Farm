@@ -1,0 +1,37 @@
+using UnityEngine;
+using Zenject;
+
+public class GridInitializer : MonoBehaviour
+{
+    [SerializeField] private GameGrid[] openGrids;
+
+    [SerializeField] private GameGrid[] closedGrids;
+    
+    [Inject]
+    public void Init()
+    {
+        foreach (var grid in openGrids)
+        {
+            grid.Init();
+        }
+
+        foreach (var closedGrid in closedGrids)
+        {
+            if (!PlayerPrefs.HasKey(closedGrid.GridName))
+            {
+                PlayerPrefs.SetInt(closedGrid.GridName, 0);
+                return;
+            }
+
+            if (PlayerPrefs.GetInt(closedGrid.GridName) == 1)
+            {
+                closedGrid.Init();
+            }
+        }
+    }
+
+    public void Save(string name)
+    {
+        PlayerPrefs.SetInt(name, 1);
+    }
+}
