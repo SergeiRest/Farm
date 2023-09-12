@@ -18,14 +18,16 @@ namespace Game.Resources.View
             for (int i = 0; i < typesCount; i++)
             {
                 ResourceType resourceType = (ResourceType)i;
-
-                ResourcesView view = resourcesViews[i];
-                view.Init(resourceType);
-
                 ResourceModel model = new ResourceModel(resourceType);
                 resources.Add(resourceType, model);
+                
+                if (i < resourcesViews.Length)
+                {
+                    ResourcesView view = resourcesViews[i];
+                    view.Init(resourceType);
+                    model.ResourceCountChanged += view.UpdateCount;
+                }
 
-                model.ResourceCountChanged += view.UpdateCount;
                 model.SendEvent();
                 
             }

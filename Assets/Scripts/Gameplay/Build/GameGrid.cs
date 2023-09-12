@@ -19,7 +19,7 @@ public class GameGrid : MonoBehaviour
             if (PlayerPrefs.HasKey(key))
             {
                 bool isBuilt = Check(key);
-                buildings[index].Init(this, isBuilt);
+                buildings[index].Init(isBuilt);
 
                 if (!isBuilt)
                     buildings[index].Save += Save;
@@ -27,7 +27,7 @@ public class GameGrid : MonoBehaviour
             else
             {
                 PlayerPrefs.SetInt(key, 0);
-                buildings[index].Init(this,false);
+                buildings[index].Init(false);
                 buildings[index].Save += Save;
             }
         }

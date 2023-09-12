@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -30,8 +31,13 @@ public class GridInitializer : MonoBehaviour
         }
     }
 
-    public void Save(string name)
+    public void Save(GameGrid grid)
     {
-        PlayerPrefs.SetInt(name, 1);
+        if(PlayerPrefs.GetInt(grid.GridName) == 1)
+            return;
+        
+        grid.gameObject.SetActive(true);
+        grid.Init();
+        PlayerPrefs.SetInt(grid.GridName, 1);
     }
 }

@@ -5,6 +5,7 @@ public enum ResourceType
 {
     Grass = 0,
     Wood = 1,
+    WoodenPlank = 2,
 }
 
 namespace Game.Resources.View

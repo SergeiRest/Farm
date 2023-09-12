@@ -9,13 +9,13 @@ public class NewGridTrigger : MonoBehaviour
 {
     [Inject] private GridInitializer gridInitializer;
 
-    [SerializeField] private string gridName;
+    [SerializeField] private GameGrid unlockingGrid;
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player player))
         {
-            gridInitializer.Save(gridName);
+            gridInitializer.Save(unlockingGrid);
         }
     }
 }
